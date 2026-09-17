@@ -1,0 +1,562 @@
+/* ============================================
+   Wool & Wild — Cute & Bright Stylesheet
+   Pure CSS · no external libraries
+   ============================================ */
+
+/* ---------- FONTS (Google Fonts, optional) ----------
+   If you want the fonts below, add this to your <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Quicksand:wght@400;500;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+   -------------------------------------------------- */
+
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BODY / BACKGROUND ---------- */
+body {
+  font-family: 'Quicksand', 'Segoe UI', 'Padauk', sans-serif;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 220, 235, 0.9) 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(210, 240, 255, 0.9) 0%, transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba(255, 245, 200, 0.9) 0%, transparent 45%),
+    radial-gradient(circle at 20% 85%, rgba(220, 255, 230, 0.9) 0%, transparent 45%),
+    #fffaf4;
+  background-attachment: fixed;
+  color: #3a2f3f;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding: 2rem 1.25rem 4rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* floating decorative sparkles behind everything */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+body::before {
+  top: -80px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #ffd6e8 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+body::after {
+  bottom: -100px;
+  right: -100px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, #d3f0ff 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* ---------- LAYOUT WRAPPER ---------- */
+main,
+header {
+  max-width: 1150px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Baloo 2', 'Quicksand', cursive;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 800;
+  color: #6b3fa0;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  text-shadow: 3px 3px 0 #ffe3f1, 6px 6px 0 rgba(180, 160, 255, 0.25);
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+header p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #9b7bb8;
+  margin-top: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+header p::before {
+  content: "✦ ";
+  color: #ffb3d1;
+}
+
+header p::after {
+  content: " ✦";
+  color: #b3e0ff;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+main > section {
+  margin-bottom: 3.5rem;
+}
+
+main > section > h2 {
+  font-family: 'Baloo 2', 'Quicksand', cursive;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: #4a3b6b;
+  margin-bottom: 1.75rem;
+  padding-left: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  position: relative;
+}
+
+main > section > h2::before {
+  content: "🌸";
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 3px rgba(255, 150, 200, 0.4));
+}
+
+/* second section uses a different icon */
+main > section:nth-of-type(2) > h2::before {
+  content: "📖";
+}
+
+main > section > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 70%;
+  height: 6px;
+  background: linear-gradient(90deg, #ffc4dd, #c7b3ff, #a8e6ff);
+  border-radius: 6px;
+  opacity: 0.7;
+}
+
+/* ---------- COMIC CARD ---------- */
+main > section > article {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 1.75rem 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 10px 30px rgba(150, 120, 200, 0.12),
+    0 3px 8px rgba(255, 180, 210, 0.15),
+    inset 0 0 0 2px #fff;
+  border: 2px dashed #f4d9ec;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+main > section > article::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #fff0f8 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+main > section > article:hover {
+  transform: translateY(-4px) rotate(-0.3deg);
+  box-shadow:
+    0 18px 40px rgba(150, 120, 200, 0.18),
+    0 6px 14px rgba(255, 180, 210, 0.2),
+    inset 0 0 0 2px #fff;
+  border-color: #ffc4dd;
+}
+
+/* Comic title */
+main > section > article > h3 {
+  font-family: 'Baloo 2', 'Quicksand', cursive;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: #7b3fa0;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.3px;
+  display: inline-block;
+  position: relative;
+}
+
+main > section > article > h3::after {
+  content: "✎";
+  font-size: 0.9rem;
+  color: #ffb3d1;
+  margin-left: 0.5rem;
+  vertical-align: super;
+}
+
+/* meta lines */
+main > section > article > p {
+  font-size: 0.95rem;
+  color: #8a7a9a;
+  margin-bottom: 0.15rem;
+  font-weight: 500;
+}
+
+main > section > article > p:nth-of-type(1) {
+  color: #b08cd0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+main > section > article > p:nth-of-type(2) {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffe3f1, #e3d6ff);
+  color: #7b5a9a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.85rem;
+  border-radius: 20px;
+  margin: 0.4rem 0 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* episode list */
+main > section > article ul {
+  list-style: none;
+  margin: 0.75rem 0 1.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+main > section > article ul li {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a4a6a;
+  padding: 0.55rem 0.9rem 0.55rem 2.4rem;
+  background: #fdf7ff;
+  border-radius: 14px;
+  border-left: 5px solid #ffb3d1;
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+main > section > article ul li::before {
+  content: "★";
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffb3d1;
+  font-size: 1.1rem;
+}
+
+main > section > article ul li:hover {
+  background: #ffeef7;
+  transform: translateX(4px);
+}
+
+/* image gallery inside each comic */
+main > section > article > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 2px dotted #f0d9ea;
+}
+
+main > section > article > div img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  border: 4px solid #fff;
+  box-shadow:
+    0 6px 16px rgba(180, 140, 220, 0.18),
+    0 0 0 2px #f4d9ec;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #ffeef8, #e8f4ff);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+main > section > article > div img:hover {
+  transform: scale(1.04) rotate(1deg);
+  box-shadow:
+    0 12px 26px rgba(180, 140, 220, 0.3),
+    0 0 0 2px #ffc4dd;
+}
+
+/* ---------- NOVEL CARD ---------- */
+main > section:nth-of-type(2) > article {
+  background: linear-gradient(160deg, #ffffff 0%, #fff8fc 100%);
+  border: 2px dashed #c7e3ff;
+  border-radius: 30px;
+  padding: 2rem 2rem 2.5rem;
+  box-shadow:
+    0 14px 36px rgba(120, 170, 220, 0.15),
+    0 3px 8px rgba(200, 230, 255, 0.25),
+    inset 0 0 0 2px #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+main > section:nth-of-type(2) > article::before {
+  content: "🪷";
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  opacity: 0.6;
+  transform: rotate(8deg);
+}
+
+main > section:nth-of-type(2) > article > h3 {
+  font-family: 'Baloo 2', 'Padauk', 'Quicksand', cursive;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: #3f6ea0;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+  text-shadow: 2px 2px 0 #e8f4ff;
+}
+
+main > section:nth-of-type(2) > article > h3::after {
+  content: none;
+}
+
+main > section:nth-of-type(2) > article > p {
+  font-size: 0.95rem;
+  color: #7a8aa0;
+  font-weight: 500;
+}
+
+main > section:nth-of-type(2) > article > p:nth-of-type(1) {
+  color: #5a8ab8;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+main > section:nth-of-type(2) > article > p:nth-of-type(2) {
+  display: inline-block;
+  background: linear-gradient(90deg, #d6ecff, #e0e0ff);
+  color: #4a6a90;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.85rem;
+  border-radius: 20px;
+  margin-top: 0.4rem;
+}
+
+/* chapter blocks */
+main > section:nth-of-type(2) > article > section {
+  margin-top: 2rem;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: #fbfdff;
+  border-radius: 24px;
+  border: 1px solid #e0eefc;
+  position: relative;
+}
+
+main > section:nth-of-type(2) > article > section > h4 {
+  font-family: 'Baloo 2', 'Quicksand', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #4a7ab0;
+  margin-bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+main > section:nth-of-type(2) > article > section > h4::before {
+  content: "✦";
+  color: #a8cfff;
+  font-size: 1.2rem;
+}
+
+/* part articles */
+main > section:nth-of-type(2) > article > section > article {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.25rem 1.4rem 1.4rem;
+  margin-bottom: 1.25rem;
+  border-left: 6px solid #c7e3ff;
+  box-shadow: 0 4px 12px rgba(150, 180, 220, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+main > section:nth-of-type(2) > article > section > article::before {
+  content: "📜";
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  font-size: 1.1rem;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+main > section:nth-of-type(2) > article > section > article:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px rgba(150, 180, 220, 0.16);
+  border-color: #a8d4ff;
+}
+
+/* part title (Burmese) */
+main > section:nth-of-type(2) > article > section > article > h5 {
+  font-family: 'Padauk', 'Quicksand', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #35608a;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dotted #d6ecff;
+  display: inline-block;
+}
+
+/* Burmese paragraph text */
+main > section:nth-of-type(2) > article > section > article > p {
+  font-family: 'Padauk', 'Noto Sans Myanmar', 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #2f3e4f;
+  white-space: pre-line;
+  letter-spacing: 0.2px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 720px) {
+  body {
+    padding: 1.25rem 0.9rem 3rem;
+  }
+
+  header {
+    padding: 1.5rem 0.5rem 2rem;
+  }
+
+  header h1 {
+    text-shadow: 2px 2px 0 #ffe3f1, 4px 4px 0 rgba(180, 160, 255, 0.25);
+  }
+
+  main > section > article {
+    padding: 1.25rem 1.1rem 1.5rem;
+    border-radius: 22px;
+  }
+
+  main > section > article > div {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.7rem;
+  }
+
+  main > section:nth-of-type(2) > article {
+    padding: 1.4rem 1.1rem 1.75rem;
+    border-radius: 24px;
+  }
+
+  main > section:nth-of-type(2) > article > section {
+    padding: 1.1rem 1rem 1.25rem;
+  }
+
+  main > section:nth-of-type(2) > article > section > article {
+    padding: 1rem 1rem 1.1rem;
+  }
+
+  main > section:nth-of-type(2) > article > section > article > p {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+}
+
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main > section > article > div {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  main > section > article ul li {
+    font-size: 0.92rem;
+    padding-left: 2.1rem;
+  }
+}
+
+/* ---------- NICE EXTRAS ---------- */
+
+/* custom scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff5fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffc4dd, #c7b3ff);
+  border-radius: 10px;
+  border: 3px solid #fff5fb;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffb3d1, #b3a3ff);
+}
+
+/* text selection */
+::selection {
+  background: #ffd6e8;
+  color: #5a2a6a;
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* fade-in for cards (uses no JS, just animation) */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > section > article,
+main > section:nth-of-type(2) > article {
+  animation: floatIn 0.6s ease both;
+}
+
+main > section > article:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+main > section > article:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+main > section > article:nth-child(4) {
+  animation-delay: 0.3s;
+}
