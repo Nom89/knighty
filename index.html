@@ -15,14 +15,9 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       SKIP LINK (accessibility)
-       ============================================================ -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================================================
-       TOP APP BAR — logo, search, nav, user
-       ============================================================ -->
+  <!-- APP BAR -->
   <header class="app-bar" role="banner">
     <div class="app-bar__inner">
       <a class="brand" href="#/" data-nav="home" aria-label="Wool & Wild home">
@@ -32,13 +27,11 @@
           <small>comics · novels · short stories</small>
         </span>
       </a>
-
       <nav class="app-nav" aria-label="Primary">
         <button class="app-nav__link" data-nav="comics">Comics</button>
         <button class="app-nav__link" data-nav="novels">Novels</button>
         <button class="app-nav__link" data-nav="library">My Library</button>
       </nav>
-
       <form class="search" role="search" onsubmit="return false;">
         <label class="sr-only" for="searchInput">Search series</label>
         <input id="searchInput" type="search" placeholder="Search titles, tags, authors…" autocomplete="off" />
@@ -47,19 +40,13 @@
     </div>
   </header>
 
-  <!-- ============================================================
-       READING PROGRESS BAR (only visible in reader view)
-       ============================================================ -->
   <div class="reading-progress" id="readingProgress" aria-hidden="true">
     <div class="reading-progress__fill" id="readingProgressFill"></div>
   </div>
 
-  <!-- ============================================================
-       MAIN
-       ============================================================ -->
   <main id="main" class="app-main">
 
-    <!-- ================= VIEW: HOME ================= -->
+    <!-- HOME -->
     <section class="view" id="view-home" aria-labelledby="homeHeading">
       <div class="hero">
         <h1 id="homeHeading">Welcome to <span>Wool &amp; Wild</span></h1>
@@ -69,23 +56,17 @@
           <button class="btn btn--ghost" data-nav="novels">Read novels</button>
         </div>
       </div>
-
       <section class="rail" aria-labelledby="railTrending">
-        <header class="rail__head">
-          <h2 id="railTrending">🔥 Trending now</h2>
-        </header>
+        <header class="rail__head"><h2 id="railTrending">🔥 Trending now</h2></header>
         <div class="rail__track" id="railTrendingTrack" role="list"></div>
       </section>
-
       <section class="rail" aria-labelledby="railNew">
-        <header class="rail__head">
-          <h2 id="railNew">✨ Recently updated</h2>
-        </header>
+        <header class="rail__head"><h2 id="railNew">✨ Recently updated</h2></header>
         <div class="rail__track" id="railNewTrack" role="list"></div>
       </section>
     </section>
 
-    <!-- ================= VIEW: CATALOG (comics + novels combined) ================= -->
+    <!-- CATALOG -->
     <section class="view" id="view-catalog" hidden aria-labelledby="catalogHeading">
       <header class="view__head">
         <h1 id="catalogHeading">Catalog</h1>
@@ -101,10 +82,9 @@
       <p class="empty" id="catalogEmpty" hidden>No series match your filters.</p>
     </section>
 
-    <!-- ================= VIEW: SERIES DETAIL ================= -->
+    <!-- SERIES -->
     <section class="view" id="view-series" hidden aria-labelledby="seriesTitle">
       <button class="btn btn--back" data-nav="back">← Back</button>
-
       <article class="series">
         <header class="series__head">
           <div class="series__cover" id="seriesCover" aria-hidden="true"></div>
@@ -125,8 +105,6 @@
             </div>
           </div>
         </header>
-
-        <!-- Chapter list (auto-generated) -->
         <section class="chapters" aria-labelledby="chaptersHeading">
           <h2 id="chaptersHeading">Chapters</h2>
           <ol class="chapters__list" id="chaptersList"></ol>
@@ -134,7 +112,7 @@
       </article>
     </section>
 
-    <!-- ================= VIEW: READER ================= -->
+    <!-- READER -->
     <section class="view view--reader" id="view-reader" hidden aria-labelledby="readerTitle">
       <header class="reader__head">
         <button class="btn btn--back" data-nav="back">← Back to series</button>
@@ -146,17 +124,11 @@
           <span id="readerProgressLabel" class="badge">Part 1 / 8</span>
         </div>
       </header>
-
-      <!-- Auto-generated Table of Contents -->
       <details class="toc" id="readerToc">
         <summary>📑 Table of contents</summary>
         <ol class="toc__list" id="readerTocList"></ol>
       </details>
-
-      <!-- Reader body: will be populated by JS -->
       <div class="reader__body" id="readerBody"></div>
-
-      <!-- Reader footer nav -->
       <nav class="reader__nav" aria-label="Chapter navigation">
         <button class="btn btn--ghost" id="readerPrev">← Previous</button>
         <button class="btn btn--ghost" id="readerNext">Next →</button>
@@ -165,9 +137,6 @@
 
   </main>
 
-  <!-- ============================================================
-       FLOATING TOOLBAR (only shown in reader view)
-       ============================================================ -->
   <aside class="reader-toolbar" id="readerToolbar" aria-label="Reader controls" hidden>
     <button class="tool-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     <button class="tool-btn" id="fontDown" title="Smaller text" aria-label="Smaller text">A−</button>
@@ -175,9 +144,6 @@
     <button class="tool-btn" id="backTop" title="Back to top" aria-label="Back to top">↑</button>
   </aside>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
   <footer class="site-footer" role="contentinfo">
     <p>© <span id="year"></span> Wool &amp; Wild · A cozy library for readers and dreamers.</p>
     <nav aria-label="Footer">
